@@ -40,7 +40,7 @@ if price <= 130:
     good_offer = True
 
 if good_offer:
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
         connection.login(user=os.environ.get("MY_EMAIL"), password=os.environ.get("MY_PASSWORD"))
         connection.sendmail(
