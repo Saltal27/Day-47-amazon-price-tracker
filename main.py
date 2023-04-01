@@ -4,11 +4,10 @@ import smtplib
 import os
 import lxml
 
-
 # scraping camel camel camel website
 response = requests.get(
     url="https://camelcamelcamel.com/product/B0B9YSHFJR",
-    headers={"User-Agent": 'Mozilla/5.0'
+    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0'
              })
 amazon_product = response.text
 
@@ -19,7 +18,6 @@ soup = BeautifulSoup(amazon_product, "lxml")
 price_tag = soup.select_one(selector="#histories > div:nth-child(1) > div > div:nth-child(2) > div > div > table > "
                                      "tbody > tr:nth-child(1) > td:nth-child(2)")
 price = float(price_tag.string.removeprefix("$"))
-
 
 # this block is commented out due to anti-scraping techniques difficulties ⬇️
 
